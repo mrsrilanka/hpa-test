@@ -28,22 +28,20 @@ One way to address this is to use Horizontal Pod Autoscaling (HPA)
 
 When you have HPA implemented in your deployment namespace in your Kubernetes clusters you can,
 
-Improve resource utilization
+1. Improve resource utilization
 
-Increase availability
+2. Increase availability
 
-Improve performance
+3. Improve performance
 
-Reduce operational overhead
+4. Reduce operational overhead
 
-Improve cost efficiency
+5. Improve cost efficiency
 
-What do you need to deploy HPA?
+### What do you need to deploy HPA?
 
-#
+1. A Kubernetes cluster with admin privileges
 
-A Kubernetes cluster with admin privileges
+2. A Metric Server
 
-A Metric Server
-
-A Deployment
+3. A Deployment
