@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: load-generator
-  namespace:
+  namespace: autoscale-test
 spec:
   selector:
     matchLabels:
