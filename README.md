@@ -50,4 +50,38 @@ When you have HPA implemented in your deployment namespace in your Kubernetes cl
 
 ## Demo 
 
+1. Create the namespace 
+
+```
+kubcelt create ns autoscale-test
+```
+
+2. Create the metrics server if it is not present in the cluser 
+
+   a. Find if it is installed 
+
+```
+kubectl get pods -n kube-system | grep metric
+```
+
+   b. If it is not present deploy it with the following command. This will create the metric-server deployment with correct roles and rolebindings. 
+
+```
+kubectl apply -f components.yaml
+```
+
+3. Create the PHP Apache deployment exposing it in port 80
+
+```
+kubectl apply -f apache-test.yaml
+```
+
+4. Verify your service and deployment 
+
+```
+kubectl get all -n autoscale-test
+```
+
+4. Deploy  
+
 # Q&A
