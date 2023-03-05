@@ -26,6 +26,8 @@ One way to address this is to use Horizontal Pod Autoscaling (HPA)
 
 ### What is HPA?
 
+HorizontalPodAutoscaler (HPA) automatically updates a workload resource (such as a Deployment or StatefulSet), with the aim of automatically scaling the workload to match demand in kubernetes. 
+
 When you have HPA implemented in your deployment namespace in your Kubernetes clusters you can,
 
 1. Improve resource utilization
