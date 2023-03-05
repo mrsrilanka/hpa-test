@@ -41,12 +41,12 @@ When you have HPA implemented in your deployment namespace in your Kubernetes cl
 5. Improve cost efficiency
 
 ### What do you need to deploy HPA?
+Prerequisites: 
+  1. A Kubernetes cluster with admin privileges
 
-1. A Kubernetes cluster with admin privileges
+  2. A Metric Server
 
-2. A Metric Server
-
-3. A Deployment
+  3. A Deployment
 
 ## Demo 
 
@@ -113,7 +113,7 @@ kubectl run -i --tty stress-generator --rm --image=busybox -n autoscale-test --r
 c. You can see the pods are scaling up as the load grows. 
 d. Stop the stress-generator pod in the other terminal and watch the number of pods of the php-apache deployment scales down. (It might take around 6-7+ Minutes depedning on what you are running) 
 
-## Backup plan
+## Backout plan
 1. Delete the hpa 
 
 ```
