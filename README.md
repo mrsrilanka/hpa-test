@@ -82,6 +82,55 @@ kubectl apply -f apache-test.yaml
 kubectl get all -n autoscale-test
 ```
 
-4. Deploy  
+5. Configure auto scaling 
+
+a. Set the autoscaling values. 
+
+```
+kubectl autoscale deployment php-apache -n autoscale-test --cpu-percent=50 --min=1 --max=15
+```
+
+b. Verify the HPA settings 
+
+```
+kubectl get hpa -n autoscale-test
+```
+
+6. Let's test the hpa for our deployment 
+
+a. Run a watch command to monitor the number of pod scale.
+
+```
+watch kubectl get pods -n autoscale-test
+```
+
+b. Open another terminal and spin up a busybox pod which will continously quering the php-apache service.
+
+```
+kubectl run -i --tty stress-generator --rm --image=busybox -n autoscale-test --restart=Never -- /bin/sh -c "while sleep 0.01; do wget -q -O- http://php-apache; done"
+```
+
+c. You can see the pods are scaling up as the load grows. 
+d. Stop the stress-generator pod in the other terminal and watch the number of pods of the php-apache deployment scales down. (It might take around 6-7+ Minutes depedning on what you are running) 
+
+Backup plan
+1. Delete the hpa 
+
+```
+kubectl delete hpa -n autoscale-test php-apache
+```
+
+2. Delete the php-apache deployment 
+
+```
+kubectl delete -f apache-test.yaml
+```
+
+3. Delete the metric-server if you installed it in the previous steps 
+
+```
+kubectl delete -f components.yaml
+```
+
 
 # Q&A
