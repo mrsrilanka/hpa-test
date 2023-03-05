@@ -58,13 +58,13 @@ kubcelt create ns autoscale-test
 
 2. Create the metrics server if it is not present in the cluser 
 
-   a. Find if it is installed 
+a. Find if it is installed 
 
 ```
 kubectl get pods -n kube-system | grep metric
 ```
   
-  b. If it is not present deploy it with the following command. This will create the metric-server deployment with correct roles and rolebindings.
+b. If it is not present deploy it with the following command. This will create the metric-server deployment with correct roles and rolebindings.
 
 ```
 kubectl apply -f components.yaml
