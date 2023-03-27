@@ -111,6 +111,7 @@ kubectl run -i --tty stress-generator --rm --image=busybox -n autoscale-test --r
 ```
 
 c. You can see the pods are scaling up as the load grows. 
+
 d. Stop the stress-generator pod in the other terminal and watch the number of pods of the php-apache deployment scales down. (It might take around 6-7+ Minutes depedning on what you are running) 
 
 ## Backout plan
